@@ -5,6 +5,7 @@ import Companies from "./Companies.js";
 import Company from "./Company.js";
 import Jobs from "./Jobs.js";
 import LoginSignup from "./LoginSignup.js";
+import Profile from "./Profile.js";
 
 
 class Routes extends Component {
@@ -34,6 +35,12 @@ class Routes extends Component {
             exact
             path="/login"
             render={(props) => <LoginSignup {...props} getCurrentUser={this.props.getCurrentUser}></LoginSignup>}
+          />
+
+          <Route 
+            exact
+            path="/profile"
+            render={(props) => <Profile {...props}/>}
           />
 
           <Route 
