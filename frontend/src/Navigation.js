@@ -55,8 +55,7 @@ class Navigation extends Component {
         <AppContext.Consumer>
           {currentUser => (
             <div className="navbar-nav ml-auto">  
-              {/* {currentUser ? this.currentUserNav() : this.noUserNav()} */}
-              {this.currentUserNav()}
+              {currentUser ? this.currentUserNav() : this.noUserNav()}
             </div>
           )}
         </AppContext.Consumer>

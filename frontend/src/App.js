@@ -4,6 +4,7 @@ import Navigation from "./Navigation.js"
 import AppContext from "./AppContext.js";
 import Routes from "./Routes.js";
 import { BrowserRouter } from "react-router-dom";
+import { decode } from "jsonwebtoken";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
@@ -13,6 +14,29 @@ class App extends Component {
       currentUser: null,
       userInfoLoaded: false
     }
+    this.getCurrentUser = this.getCurrentUser.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
+  }
+
+  async componentDidMount() {
+    await this.getCurrentUser();
+  }
+
+  async getCurrentUser() {
+    const token = localStorage.getItem("jobly-token");
+
+    try {
+      let decodedUser = decode(token);
+      let currentUser = await JoblyApi.getCurrentUser(decodedUser.username);
+      this.setState({ currentUser, userInfoLoaded: true });
+    } catch (error) {
+      this.setState({ currentUser: null, userInfoLoaded: true});
+    }
+  }
+
+  handleLogout() {
+    localStorage.removeItem("jobly-token");
+    this.setState({ currentUser: null });
   }
 
   render(){
