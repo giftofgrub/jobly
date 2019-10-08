@@ -5,7 +5,7 @@ import AppContext from "./AppContext.js";
 import Routes from "./Routes.js";
 import { BrowserRouter } from "react-router-dom";
 import { decode } from "jsonwebtoken";
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 class App extends Component {
   constructor(props) {

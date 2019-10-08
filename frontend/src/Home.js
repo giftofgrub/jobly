@@ -21,9 +21,13 @@ class Home extends Component {
             )}
           </AppContext.Consumer>
         </div>
-          
-
-
+        <ul class="slideshow">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
       </div>
     );
   }
