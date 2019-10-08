@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import JoblyApi from "./JoblyApi.js";
 import Navigation from "./Navigation.js"
 import AppContext from "./AppContext.js";
+import Routes from "./Routes.js";
 import { BrowserRouter } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -20,6 +21,7 @@ class App extends Component {
         <AppContext.Provider value={this.state.currentUser}>
           <BrowserRouter>
             <Navigation logout={this.handleLogout}/>
+            <Routes getCurrentUser={this.getCurrentUser}/>
           </BrowserRouter>
         </AppContext.Provider>
       </div>
